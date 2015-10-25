@@ -90,3 +90,4 @@ The course project, written in run_analysis.R using dplyr package,  was subdivid
 		Dataset_mean <- summarise_each(Dataset_red_bySubject_Activity,funs(mean))
 		write.table(Dataset_mean,"ReducedDataset_Mean.txt", row.names=FALSE)
 		rm("DataSet_MeanStd", "Dataset_red","Dataset_red_bySubject_Activity")
+
