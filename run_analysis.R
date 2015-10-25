@@ -1,31 +1,3 @@
-#"Course project Getting and Cleaning Data"
-
-The course project, written in run_analysis.R using dplyr package,  was subdivided into five subtasks:
-
-##Task 1: Merging data sets
-	*The training and test data sets (X_train,X_test) were loaded together with the corresponding Subjectlist and Activitylist related to each record in the data set
-	*Each set was merged with the corresponding Subject list and Activity list
-	*Finally, both extended data sets were merged
-	
-##Task 2: Selecting mean and standard deviation features
-	*The features describing the mean and standard deviation were selected by analysing the featurenames and selecting those containing "mean()" and "std()"
-	*The complete dataset was reduced using this selection. Additionally, the columns with the ID description (ParticipantID and ActivityID) were incorporated
-	
-##Task 3: Altering ActivityID in Descriptive Test
-	*The AcitivityIDs were subsitiuted by the description, which was read from the activity_labels.txt-file.  This was achieved by merging  both tables and removing the activityID column
-
-##Task 4: Descriptive labeling
-	*The column-names were cleaned: "-" was replaced by "_" and "()" by ""
-	
-##Task5: Grouping Dataset and evaluate means
-	*The dataset was grouped by participant and activity
-	*The individual mean of all features in a group war calculated using the dplyr function summarise_each()
-	*The resulting table was written to a file named "ReducedDataset_Mean.txt"
-	
------
-#Source code run_analysis.R:
-
-
 # Task data science course "Getting and Cleaning Data", Coursera
 library(dplyr)
 
@@ -90,3 +62,4 @@ library(dplyr)
 	Dataset_mean <- summarise_each(Dataset_red_bySubject_Activity,funs(mean))
 	write.table(Dataset_mean,"ReducedDataset_Mean.txt", row.names=FALSE)
 	rm("DataSet_MeanStd", "Dataset_red","Dataset_red_bySubject_Activity")
+
